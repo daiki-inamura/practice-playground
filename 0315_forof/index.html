@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>テンプレート</title>
+<link href="../../_common/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="container">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+<section>
+    <form action="#" id="form">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="submit" value="送信">
+    </form>
+    <p id="output"></p>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script>
+    'use strict'
+    document.getElementById('form').onsubmit = function(event) {
+        event.preventDefault();
+        const num1 = document.getElementById('form').num1.value;
+        const num2 = document.getElementById('form').num2.value;
+        let array = new Array();
+        kuku:
+        if (num1>10 || num2>10) {
+            document.getElementById('output').textContent = `「${num1}または${num2}」は10以下で入力してください。`;
+            break kuku;
+        }
+
+        for(let i = num1; i < 10; i++) {
+            for(let j = num2; j<10; j++) {
+            let result = i * j;
+                if(result > 30) {
+                    break;
+                }
+                
+                // 配列に格納
+                array.push(result);
+            }
+        }
+        // 配列の中身を表示
+        for(let value of array) {
+            console.log(value);
+        }
+
+    }
+
+</script>
+</body>
+</html>
